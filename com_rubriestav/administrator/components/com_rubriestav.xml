@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="component" version="1.5.3">
+	<name>Rubri Estav</name>
+	<!-- The following elements are optional and free of formatting conttraints -->
+	<creationDate>March 2011</creationDate>
+	<author>David Frassi</author>
+	<authorEmail>info@davidfrassi.it</authorEmail>
+	<authorUrl>http://www.davidfrassi.it</authorUrl>
+	<copyright>(C) 2009-2010 All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<!--  The version string is recorded in the components table -->
+	<version>1.0</version>
+<!-- oltre a definire questi parametri nel file config.xml è necessario specificarli anche qui
+se si vuole che vengano inseriti la prima volta nella tabella #__components -->
+	<params>
+			<param name="image_maxsize_upload" type="text" size="20" default="1500000"/>
+	</params>
+	<!-- database section -->
+	
+	<install>
+		<sql folder="administrator/components">
+			<file driver="mysql" charset="utf8">install.rubriestav.sql</file>
+		</sql>
+	</install>
+	
+	<uninstall>
+		<sql folder="administrator/components">
+			<file driver="mysql" charset="utf8">uninstall.rubriestav.sql</file>
+		</sql>
+	</uninstall>
+	
+	<installfile>install.rubriestav.php</installfile>
+	
+	<files folder="components">
+		<filename>index.html</filename>
+		<filename>rubriestav.php</filename>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>tables</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+		<folder>images</folder>
+		<folder>assets</folder>
+	</files>
+	
+		<languages folder="components/lang">
+			<language tag="it-IT">it-IT.com_rubriestav.ini</language>
+		</languages>
+
+	
+	<administration>
+		<!-- Administration Menu Section -->
+		<menu img="components/com_rubriestav/images/com_rubriestav_small.png">Rubrica Estav</menu>
+		
+		<submenu>
+			<!-- Note that all & must be escaped to &amp; for the file to be valid XML and be parsed by the installer -->
+			<menu link="option=com_rubriestav&amp;controller=user">Utenti Estav</menu>
+			<menu link="option=com_rubriestav&amp;controller=loader">Gestione Backup</menu>
+			<menu link="option=com_rubriestav&amp;controller=importusers">Import Tracciati</menu>
+		</submenu>
+		
+		<!-- Administration Main File Copy Section -->
+		<!-- Note the folder attribute: This attribute describes the folder   
+		 to copy FROM in the package to install therefore files copied   
+		  in this section are copied from /admin/ in the package -->
+	
+		<files folder="administrator/components">
+			<filename>index.html</filename>
+			<filename>config.xml</filename>
+			<filename>admin.rubriestav.php</filename>		
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<folder>images</folder>
+			<folder>assets</folder>
+	
+		</files>
+		<files folder="administrator/components">
+			<!-- database script -->
+			<filename>install.rubriestav.sql</filename>
+			<filename>uninstall.rubriestav.sql</filename>
+		</files>
+		
+		<languages folder="administrator/components/lang">
+			<language tag="it-IT">it-IT.com_rubriestav.ini</language>
+		</languages>
+		
+	</administration>
+</install>
