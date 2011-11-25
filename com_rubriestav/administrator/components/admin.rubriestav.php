@@ -10,10 +10,11 @@
 */
 
 
+
 // controllo che il componente venga chiamato soltanto da joomla
 defined( '_JEXEC' ) or die( 'Restricted access' );
 require_once (JPATH_PLUGINS.DS.'system'.DS.'djflibraries'.DS.'utility.php');
-// questo è il controller di default se non ne viene selezionato alcuno
+// questo ï¿½ il controller di default se non ne viene selezionato alcuno
 $controller = JRequest::getVar('controller','user' );
 
 // indirizza il controller giusto
